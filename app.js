@@ -51,3 +51,73 @@ el("languageButton").onclick=()=>loadLocale(state.locale==="en"?"ar":"en");
 el("newsletterForm").onsubmit=e=>{e.preventDefault();el("newsletterMessage").textContent=get(state.messages,"newsletter.message")||"Thank you — newsletter integration will be connected before launch."};
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
 loadLocale(state.locale);
+
+// Cinematic scroll system
+const clamp=(n,min=0,max=1)=>Math.min(max,Math.max(min,n));
+const heroScene=document.getElementById("heroScene");
+const experienceScene=document.getElementById("experienceScene");
+const scrollProgress=document.getElementById("scrollProgress");
+const ambientLight=document.getElementById("ambientLight");
+const header=document.querySelector(".site-header");
+let ticking=false;
+
+function sceneProgress(node){
+  if(!node) return 0;
+  const r=node.getBoundingClientRect();
+  const travel=Math.max(1,r.height-window.innerHeight);
+  return clamp((-r.top)/travel);
+}
+function updateMotion(){
+  ticking=false;
+  const doc=document.documentElement;
+  const maxScroll=Math.max(1,doc.scrollHeight-window.innerHeight);
+  const pageP=clamp(window.scrollY/maxScroll);
+  document.body.style.setProperty("--scroll-p",pageP);
+  if(scrollProgress) scrollProgress.style.width=(pageP*100)+"%";
+  if(header) header.classList.toggle("scrolled",window.scrollY>36);
+  if(heroScene) heroScene.style.setProperty("--hero-p",sceneProgress(heroScene));
+  if(experienceScene) experienceScene.style.setProperty("--experience-p",sceneProgress(experienceScene));
+}
+function requestMotion(){
+  if(!ticking){ticking=true;requestAnimationFrame(updateMotion)}
+}
+window.addEventListener("scroll",requestMotion,{passive:true});
+window.addEventListener("resize",requestMotion);
+document.addEventListener("pointermove",e=>{
+  if(!ambientLight) return;
+  document.body.style.setProperty("--mx",e.clientX+"px");
+  document.body.style.setProperty("--my",e.clientY+"px");
+},{passive:true});
+
+const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("in-view","revealed");
+  });
+},{threshold:.14,rootMargin:"0px 0px -7% 0px"});
+document.querySelectorAll(".manifesto,.ritual-section,.quote-section,.newsletter").forEach(el=>revealObserver.observe(el));
+
+const productObserver=new MutationObserver(()=>{
+  document.querySelectorAll(".product-card:not([data-observed])").forEach((card,i)=>{
+    card.dataset.observed="1";
+    card.style.transitionDelay=(Math.min(i,3)*70)+"ms";
+    revealObserver.observe(card);
+  });
+});
+productObserver.observe(grid,{childList:true});
+document.querySelectorAll(".product-card").forEach(card=>revealObserver.observe(card));
+
+if(window.matchMedia("(hover:hover) and (pointer:fine)").matches){
+  document.addEventListener("pointermove",e=>{
+    const card=e.target.closest(".product-card");
+    if(!card) return;
+    const r=card.getBoundingClientRect();
+    const rx=((e.clientY-r.top)/r.height-.5)*-3.5;
+    const ry=((e.clientX-r.left)/r.width-.5)*4.5;
+    card.style.transform="perspective(1100px) rotateX("+rx+"deg) rotateY("+ry+"deg) translateY(-3px)";
+  });
+  document.addEventListener("pointerout",e=>{
+    const card=e.target.closest && e.target.closest(".product-card");
+    if(card) card.style.transform="";
+  });
+}
+requestAnimationFrame(updateMotion);
