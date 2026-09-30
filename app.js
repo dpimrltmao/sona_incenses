@@ -56,6 +56,10 @@ loadLocale(state.locale);
 const clamp=(n,min=0,max=1)=>Math.min(max,Math.max(min,n));
 const heroScene=document.getElementById("heroScene");
 const experienceScene=document.getElementById("experienceScene");
+const storyScene=document.getElementById("storyScene");
+const ritualScene=document.getElementById("ritualScene");
+const quoteScene=document.getElementById("quoteScene");
+const contactScene=document.getElementById("contactScene");
 const scrollProgress=document.getElementById("scrollProgress");
 const ambientLight=document.getElementById("ambientLight");
 const header=document.querySelector(".site-header");
@@ -77,6 +81,10 @@ function updateMotion(){
   if(header) header.classList.toggle("scrolled",window.scrollY>36);
   if(heroScene) heroScene.style.setProperty("--hero-p",sceneProgress(heroScene));
   if(experienceScene) experienceScene.style.setProperty("--experience-p",sceneProgress(experienceScene));
+  if(storyScene) storyScene.style.setProperty("--story-p",sceneProgress(storyScene));
+  if(ritualScene) ritualScene.style.setProperty("--ritual-p",sceneProgress(ritualScene));
+  if(quoteScene) quoteScene.style.setProperty("--quote-p",sceneProgress(quoteScene));
+  if(contactScene) contactScene.style.setProperty("--contact-p",sceneProgress(contactScene));
 }
 function requestMotion(){
   if(!ticking){ticking=true;requestAnimationFrame(updateMotion)}
