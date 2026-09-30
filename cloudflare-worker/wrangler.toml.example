@@ -1,0 +1,9 @@
+name = "sona-checkout"
+main = "worker.js"
+compatibility_date = "2026-09-30"
+
+[vars]
+ALLOWED_ORIGIN = "https://sonaincenses.com"
+# STRIPE_SHIPPING_RATE_ID = "shr_..."
+
+# Add STRIPE_SECRET_KEY as an encrypted secret in Cloudflare, never here.
