@@ -88,3 +88,164 @@ main,.site-header,.announcement,.footer{position:relative;z-index:1}
   .hero-scroll .hero-copy,.hero-scroll .hero-stage,.experience-card,.experience-logo,.experience-copy,.product-card,.manifesto,.ritual-section,.quote-section,.newsletter{transform:none!important;opacity:1!important;filter:none!important;transition:none!important}
   .experience-scroll{height:auto;padding:60px 0}.experience-sticky{position:relative;height:auto}.experience-card{width:92vw;height:72vh;border-radius:28px}
 }
+
+
+/* --- Continuous cinematic chapters: story to footer --- */
+.story-scroll{height:220vh;position:relative;background:#090806}
+.story-sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:#090806;display:grid;place-items:center}
+.story-scroll .manifesto{
+  --sp:var(--story-p,0);
+  width:calc(88vw + 12vw * var(--sp));
+  height:calc(80vh + 20vh * var(--sp));
+  min-height:0;
+  border-radius:calc(34px * (1 - var(--sp)));
+  grid-template-columns:.52fr 1.12fr 1fr;
+  background:
+    radial-gradient(circle at 78% 42%,rgba(166,104,49,.14),transparent 33%),
+    linear-gradient(145deg,#13100d,#090806 62%);
+  color:var(--ivory);
+  border:1px solid rgba(211,173,114,.13);
+  box-shadow:0 45px 130px rgba(0,0,0,.46);
+  transform:scale(calc(.94 + .06 * var(--sp)));
+  overflow:hidden;
+  opacity:1;
+}
+.story-scroll .manifesto-letter{
+  color:rgba(211,173,114,.055);
+  transform:translateX(calc(-36px + 36px * var(--sp))) scale(calc(.86 + .14 * var(--sp)));
+  opacity:calc(.55 + .35 * var(--sp));
+}
+.story-scroll .manifesto-copy{
+  padding:9vh 4vw 8vh 0;
+  transform:translateY(calc(28px - 28px * var(--sp)));
+  opacity:calc(.5 + .5 * var(--sp));
+}
+.story-scroll .manifesto-copy .eyebrow{color:var(--gold)}
+.story-scroll .manifesto-copy h2{color:var(--ivory);font-size:clamp(58px,6.3vw,104px);line-height:.82}
+.story-scroll .manifesto-copy>p:not(.eyebrow){color:#94887b}
+.story-scroll .manifesto-sign{border-color:rgba(211,173,114,.18);color:#816f5d}
+.story-scroll .manifesto-art{
+  height:100%;
+  min-height:0;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(225,180,112,.23),transparent 28%),
+    linear-gradient(150deg,#4c2f1e,#1b120d 64%,#0d0a08);
+  transform:scale(calc(.88 + .18 * var(--sp)));
+  clip-path:inset(calc(4% * (1 - var(--sp))) round calc(22px * (1 - var(--sp))));
+}
+.story-scroll .manifesto-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,8,6,.12),transparent 35%,rgba(211,173,114,.03));pointer-events:none}
+.story-scroll .orbit{
+  width:clamp(310px,34vw,570px);height:clamp(310px,34vw,570px);
+  transform:scale(calc(.82 + .23 * var(--sp)));
+  opacity:calc(.45 + .35 * var(--sp));
+}
+.story-scroll .vessel{
+  transform:translateY(calc(26px - 38px * var(--sp))) scale(calc(.86 + .17 * var(--sp)));
+  filter:brightness(calc(.86 + .18 * var(--sp))) drop-shadow(0 34px 60px rgba(0,0,0,.38));
+}
+.story-scroll .manifesto-art p{opacity:calc(.35 + .65 * var(--sp));transform:translateY(calc(16px - 16px * var(--sp)));color:#b9a891}
+
+.ritual-scroll{height:235vh;position:relative;background:#090806}
+.ritual-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;background:
+  radial-gradient(circle at 15% 58%,rgba(135,83,40,.13),transparent 28%),
+  #090806}
+.ritual-scroll .ritual-section{
+  --rp:var(--ritual-p,0);
+  width:calc(86vw + 14vw * var(--rp));
+  height:calc(78vh + 22vh * var(--rp));
+  padding:0;
+  background:#0b0a08;
+  border:1px solid rgba(211,173,114,.12);
+  border-radius:calc(34px * (1 - var(--rp)));
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  opacity:1;
+  transform:none;
+}
+.ritual-scroll .ritual-shell{width:min(var(--max),100%);padding:0 5vw;gap:10vw}
+.ritual-scroll .ritual-intro{transform:translateX(calc(-38px + 38px * var(--rp)));opacity:calc(.52 + .48 * var(--rp))}
+.ritual-scroll .ritual-intro h2{font-size:clamp(64px,7vw,110px);line-height:.78}
+.ritual-scroll .ritual-steps{transform:translateX(calc(48px - 48px * var(--rp)))}
+.ritual-scroll .ritual-steps li{transition:none}
+.ritual-scroll .ritual-steps li:nth-child(1){opacity:clamp(.18,calc(var(--rp) * 4),1);transform:translateY(calc((1 - var(--rp))*34px))}
+.ritual-scroll .ritual-steps li:nth-child(2){opacity:clamp(.18,calc((var(--rp) - .22)*4),1);transform:translateY(calc((1 - clamp(0,calc((var(--rp) - .22)*2.2),1))*34px))}
+.ritual-scroll .ritual-steps li:nth-child(3){opacity:clamp(.18,calc((var(--rp) - .48)*4),1);transform:translateY(calc((1 - clamp(0,calc((var(--rp) - .48)*2.1),1))*34px))}
+.ritual-scroll .ritual-steps strong{transition:transform .35s ease,text-shadow .35s ease}
+.ritual-scroll .ritual-steps li:hover strong{transform:scale(1.12);text-shadow:0 0 24px rgba(211,173,114,.2)}
+
+.quote-scroll{height:165vh;position:relative;background:#090806}
+.quote-sticky{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden;background:#090806}
+.quote-scroll .quote-section{
+  --qp:var(--quote-p,0);
+  width:calc(74vw + 26vw * var(--qp));
+  height:calc(66vh + 34vh * var(--qp));
+  padding:0 5vw;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:1px solid rgba(211,173,114,.12);
+  border-radius:calc(40px * (1 - var(--qp)));
+  background:
+    radial-gradient(circle at 50% 48%,rgba(178,112,50,.19),transparent 34%),
+    #110d0a;
+  transform:scale(calc(.94 + .06 * var(--qp)));
+  opacity:1;
+}
+.quote-scroll .quote-section>span{font-size:clamp(78px,8vw,130px);height:auto;opacity:calc(.35 + .65 * var(--qp));transform:translateY(calc(25px - 25px * var(--qp)))}
+.quote-scroll .quote-section p{
+  font-size:clamp(58px,7.3vw,116px);
+  transform:scale(calc(.88 + .12 * var(--qp)));
+  opacity:calc(.42 + .58 * var(--qp));
+  letter-spacing:calc(-.01em - .02em * var(--qp));
+}
+.quote-scroll .quote-section small{opacity:calc(.2 + .8 * var(--qp));transform:translateY(calc(18px - 18px * var(--qp)))}
+
+.contact-scroll{height:155vh;position:relative;background:#090806}
+.contact-sticky{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden;background:#090806}
+.contact-scroll .newsletter{
+  --cp:var(--contact-p,0);
+  width:calc(76vw + 24vw * var(--cp));
+  min-height:calc(58vh + 42vh * var(--cp));
+  margin:0;
+  padding:8vh max(5vw,calc((100vw - var(--max))/2 + 40px));
+  background:
+    radial-gradient(circle at 77% 26%,rgba(255,232,191,.18),transparent 27%),
+    linear-gradient(135deg,#d0ac72,#a67843 68%,#72502f);
+  border-radius:calc(38px * (1 - var(--cp)));
+  transform:translateY(calc(28px - 28px * var(--cp))) scale(calc(.95 + .05 * var(--cp)));
+  box-shadow:0 50px 140px rgba(0,0,0,.48);
+  overflow:hidden;
+}
+.contact-scroll .newsletter:after{content:"SONA";position:absolute;right:-2vw;bottom:-10vh;font-family:var(--serif);font-size:clamp(190px,26vw,430px);line-height:.7;color:rgba(35,22,12,.055);pointer-events:none}
+.contact-scroll .newsletter>div,.contact-scroll .newsletter-form{position:relative;z-index:2;opacity:calc(.35 + .65 * var(--cp));transform:translateY(calc(28px - 28px * var(--cp)))}
+.contact-scroll .newsletter h2{font-size:clamp(58px,6.5vw,104px)}
+
+@media(max-width:1060px){
+  .story-scroll,.ritual-scroll,.quote-scroll,.contact-scroll{height:auto}
+  .story-sticky,.ritual-sticky,.quote-sticky,.contact-sticky{position:relative;height:auto;overflow:visible;padding:50px 0}
+  .story-scroll .manifesto,.ritual-scroll .ritual-section,.quote-scroll .quote-section,.contact-scroll .newsletter{width:92vw;height:auto;min-height:auto;border-radius:26px;transform:none}
+  .story-scroll .manifesto{grid-template-columns:1fr}
+  .story-scroll .manifesto-letter{display:none}
+  .story-scroll .manifesto-copy{padding:80px 7vw}
+  .story-scroll .manifesto-art{min-height:560px;clip-path:none}
+  .ritual-scroll .ritual-section{padding:80px 0}
+  .ritual-scroll .ritual-intro,.ritual-scroll .ritual-steps{transform:none}
+  .quote-scroll .quote-section{min-height:72vh;padding:70px 5vw}
+  .contact-scroll .newsletter{padding:70px 6vw}
+}
+@media(max-width:680px){
+  .story-sticky,.ritual-sticky,.quote-sticky,.contact-sticky{padding:28px 0}
+  .story-scroll .manifesto,.ritual-scroll .ritual-section,.quote-scroll .quote-section,.contact-scroll .newsletter{width:94vw;border-radius:22px}
+  .story-scroll .manifesto-copy{padding:65px 24px}
+  .story-scroll .manifesto-copy h2{font-size:58px}
+  .story-scroll .manifesto-art{min-height:480px}
+  .ritual-scroll .ritual-section{padding:62px 0}
+  .ritual-scroll .ritual-shell{padding:0 24px}
+  .ritual-scroll .ritual-intro h2{font-size:58px}
+  .quote-scroll .quote-section p{font-size:50px}
+  .contact-scroll .newsletter{padding:60px 24px}
+}
+@media(prefers-reduced-motion:reduce){
+  .story-scroll,.ritual-scroll,.quote-scroll,.contact-scroll{height:auto}
+  .story-sticky,.ritual-sticky,.quote-sticky,.contact-sticky{position:relative;height:auto;padding:40px 0}
+  .story-scroll .manifesto,.ritual-scroll .ritual-section,.quote-scroll .quote-section,.contact-scroll .newsletter{width:92vw;height:auto;min-height:70vh;border-radius:28px;transform:none!important}
+}
