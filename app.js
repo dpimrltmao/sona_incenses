@@ -1,9 +1,14 @@
 const CHECKOUT_ENDPOINT="https://checkout.sonaincenses.com/create-checkout-session";
 const PRODUCTS=[
-{id:"sona-signature",name:{en:"Sona Signature",ar:"سونا سيغنتشر"},notes:{en:"Oud · Amber · Soft Musk",ar:"عود · عنبر · مسك ناعم"},price:16500,badge:{en:"Signature",ar:"مميز"}},
-{id:"majlis-amber",name:{en:"Majlis Amber",ar:"عنبر المجلس"},notes:{en:"Amber · Sandalwood · Vanilla",ar:"عنبر · صندل · فانيلا"},price:14500,badge:{en:"Warm",ar:"دافئ"}},
-{id:"velvet-oud",name:{en:"Velvet Oud",ar:"عود مخملي"},notes:{en:"Oud · Rose · Saffron",ar:"عود · ورد · زعفران"},price:18500,badge:{en:"Rich",ar:"غني"}},
-{id:"white-musk",name:{en:"White Musk",ar:"المسك الأبيض"},notes:{en:"Musk · Cotton · Light Woods",ar:"مسك · قطن · أخشاب خفيفة"},price:13500,badge:{en:"Soft",ar:"ناعم"}}
+{id:"mammal-sanda-khoumra",name:{en:"Mammal Sanda & Khoumra — Versace Inspired",ar:"مَمَل صندل وخُمرة — مستوحى من فيرساتشي"},notes:{en:"Sandalwood · Khoumra · Perfumed woods",ar:"صندل · خُمرة · أخشاب معطرة"},price:19500,badge:{en:"Opulent",ar:"فاخر"},sprite:"0 0"},
+{id:"khoumra-inspired",name:{en:"Khoumra — Versace Inspired",ar:"خُمرة — مستوحى من فيرساتشي"},notes:{en:"Amber · Spice · Perfumed resin",ar:"عنبر · توابل · راتنج عطري"},price:22000,badge:{en:"Intense",ar:"مكثف"},sprite:"50% 0"},
+{id:"sandal-bukhor-oud",name:{en:"Sandal Bukhor with Oud",ar:"بخور صندل مع عود"},notes:{en:"Sandalwood · Oud · Deep woods",ar:"صندل · عود · أخشاب عميقة"},price:22000,badge:{en:"Oud",ar:"عود"},sprite:"100% 0"},
+{id:"royal-sandal-anfar",name:{en:"Royal Sandal & Anfar",ar:"رويال صندل وأنفار"},notes:{en:"Sandalwood · Resin · Royal woods",ar:"صندل · راتنج · أخشاب فاخرة"},price:16500,badge:{en:"Royal",ar:"ملكي"},sprite:"0 50%"},
+{id:"liban-sandal",name:{en:"Liban with Sandal",ar:"لبان مع صندل"},notes:{en:"Liban · Sandalwood · Soft smoke",ar:"لبان · صندل · دخان ناعم"},price:6500,badge:{en:"Classic",ar:"كلاسيكي"},sprite:"50% 50%"},
+{id:"mahlab-delka",name:{en:"Mahlab Delka",ar:"محلب دلكة"},notes:{en:"Mahlab · Aromatic woods · Resin",ar:"محلب · أخشاب عطرية · راتنج"},price:6500,badge:{en:"Heritage",ar:"تراثي"},sprite:"100% 50%"},
+{id:"normal-delka",name:{en:"Normal Delka",ar:"دلكة عادية"},notes:{en:"Warm resin · Woods · Traditional blend",ar:"راتنج دافئ · أخشاب · خلطة تقليدية"},price:6000,badge:{en:"Traditional",ar:"تقليدي"},sprite:"0 100%"},
+{id:"musk-khomra",name:{en:"Musk Khomra",ar:"مسك خُمرة"},notes:{en:"Musk · Amber · Soft woods",ar:"مسك · عنبر · أخشاب ناعمة"},price:13500,badge:{en:"Musk",ar:"مسك"},sprite:"50% 100%"},
+{id:"french-cloth-perfume",name:{en:"French Cloth Perfume — 200ml",ar:"عطر أقمشة فرنسي — 200 مل"},notes:{en:"Fabric perfume · Fresh musk · Elegant florals",ar:"عطر أقمشة · مسك منعش · زهور أنيقة"},price:10500,badge:{en:"200ml",ar:"200 مل"},sprite:"100% 100%"}
 ];
 const state={cart:JSON.parse(localStorage.getItem("sona_cart")||"{}"),locale:localStorage.getItem("sona_locale")||"en",messages:{}};
 const el=id=>document.getElementById(id);
@@ -24,7 +29,7 @@ async function loadLocale(locale){
   }catch(e){console.error("Locale load failed",e)}
 }
 function renderProducts(){
-  grid.innerHTML=PRODUCTS.map((p,i)=>'<article class="product-card"><div class="product-visual" style="filter:hue-rotate('+(i*6)+'deg)"><span class="product-badge">'+p.badge[state.locale]+'</span><div class="product-jar"></div></div><div class="product-info"><div class="product-topline"><span class="product-title">'+p.name[state.locale]+'</span><span class="product-price">'+money(p.price)+'</span></div><p class="product-notes">'+p.notes[state.locale]+'</p><button class="add-button" data-add="'+p.id+'">'+(get(state.messages,"product.add")||"Add to bag")+'</button></div></article>').join("");
+  grid.innerHTML=PRODUCTS.map((p)=>'<article class="product-card"><div class="product-photo" style="background-position:'+p.sprite+'"><span class="product-badge">'+p.badge[state.locale]+'</span></div><div class="product-info"><div class="product-topline"><span class="product-title">'+p.name[state.locale]+'</span><span class="product-price">'+money(p.price)+'</span></div><p class="product-notes">'+p.notes[state.locale]+'</p><button class="add-button" data-add="'+p.id+'">'+(get(state.messages,"product.add")||"Add to bag")+'</button></div></article>').join("");
 }
 function save(){localStorage.setItem("sona_cart",JSON.stringify(state.cart));renderCart()}
 function add(id){state.cart[id]=Math.min((state.cart[id]||0)+1,10);save();openCart()}
