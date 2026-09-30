@@ -1,0 +1,14 @@
+{
+  "announcement":"Complimentary UAE delivery can be configured for qualifying orders.",
+  "nav":{"collection":"Collection","story":"Our Story","ritual":"The Ritual","contact":"Contact"},
+  "bag":"Bag",
+  "hero":{"eyebrow":"Bukhoor · Oud · Home Fragrance","title1":"Fragrance that","title2":"stays in the memory.","text":"A refined collection inspired by the warmth of Arabian hospitality — layered woods, soft musk, amber and smoke for homes that feel unmistakably yours.","shop":"Shop the collection","discover":"Discover Sona","caption":"The quiet luxury of scent"},
+  "trust":{"1":"Premium Bukhoor","2":"Secure Checkout","3":"UAE Delivery","4":"Gift Ready"},
+  "collection":{"eyebrow":"The collection","title":"Find your signature smoke.","note":"Preview catalogue. Replace demo products and prices with Sona's confirmed range before launch."},
+  "product":{"add":"Add to bag"},
+  "story":{"eyebrow":"Sona, at home","title":"A scent can change the entire room.","text":"We believe Bukhoor is more than fragrance. It is welcome, calm, celebration and memory — carried in smoke.","note":"Made for quiet mornings, generous welcomes and evenings that linger."},
+  "ritual":{"eyebrow":"The Bukhoor ritual","title":"Three simple steps.","text":"Place a small piece of Bukhoor over safely prepared charcoal or an electric burner, let the fragrance bloom, then allow the smoke to move gently through your space.","safety":"Always use a heat-safe burner on a stable surface and never leave burning charcoal unattended.","step1":{"title":"Warm","text":"Prepare your burner safely."},"step2":{"title":"Place","text":"Add a small amount of Bukhoor."},"step3":{"title":"Enjoy","text":"Let the scent settle into the room."}},
+  "newsletter":{"eyebrow":"Join the Sona circle","title":"New scents. Private releases. Thoughtful gifting.","placeholder":"Your email address","join":"Join","message":"Thank you — newsletter integration will be connected before launch."},
+  "footer":{"tagline":"Refined Bukhoor for memorable spaces.","shop":"Shop","how":"How to use","support":"Support","shipping":"Shipping & returns","legal":"Legal","privacy":"Privacy","terms":"Terms"},
+  "cart":{"title":"Your bag","empty":"Your bag is waiting for something beautiful.","subtotal":"Subtotal","shipping":"Shipping and any applicable tax are calculated at checkout.","checkout":"Secure checkout","opening":"Opening secure checkout…","remove":"Remove"}
+}
