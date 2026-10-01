@@ -508,3 +508,18 @@ main,.site-header,.announcement,.footer{position:relative;z-index:1}
 @media(max-width:680px){
   .product-photo{aspect-ratio:4/5;min-height:0!important}
 }
+
+
+/* Fallback stays visible only until each individual file exists in assets/products/. */
+.product-photo{
+  background-image:url("assets/sona-products-clean.webp")!important;
+  background-size:300% 300%!important;
+  background-repeat:no-repeat!important;
+}
+.product-image{position:relative;z-index:1}
+.cart-thumb{
+  background-image:url("assets/sona-products-clean.webp")!important;
+  background-size:300% 300%!important;
+  background-repeat:no-repeat!important;
+}
+.cart-thumb img{position:relative;z-index:1}
