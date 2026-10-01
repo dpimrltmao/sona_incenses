@@ -13,3 +13,92 @@ footer{padding:70px max(38px,calc((100vw - var(--max))/2 + 38px)) 30px;backgroun
 @media(max-width:900px){.art-header{grid-template-columns:1fr auto;padding:0 18px}.art-header nav{display:none}.art-hero{grid-template-columns:1fr}.hero-copy{position:absolute;z-index:5;left:24px;right:24px;top:12vh}.hero-canvas{position:absolute;inset:35vh 0 0;height:65vh;opacity:.62}.canvas-frame{width:60%}.collection-head{grid-template-columns:1fr;gap:25px}.gallery{grid-template-columns:1fr}.collector{grid-template-columns:1fr}.gold-field{display:none}.art-intro{grid-template-columns:1fr;padding:0 24px}.intro-number{position:absolute}.texture-disc{display:none}.intro-copy{position:relative;z-index:2}.work-card{grid-template-columns:1fr}.work-frame{min-height:430px}.collector-panel{padding:0 24px}.bridge{justify-content:flex-start;padding:0 20px}.art-hero-scene{height:165vh}.art-intro-scene{height:155vh}.collector-scene{height:145vh}}
 @media(max-width:600px){h1{font-size:64px}.intro-copy h2,.collector-panel h2{font-size:58px}.collection{padding:85px 18px}.collection-head h2{font-size:58px}.work-frame{padding:25px;min-height:380px}.work-frame .artwork{width:82%}.work-meta{padding:32px 24px}.canvas-frame{width:74%}.brand span{display:none}}
 @media(prefers-reduced-motion:reduce){.art-hero-scene,.art-intro-scene,.collector-scene{height:auto}.sticky{position:relative;height:auto;min-height:90vh}.hero-copy,.hero-canvas,.intro-copy,.texture-disc{transform:none!important;opacity:1!important}}
+
+
+/* --- October refinement: continuous dark gallery + legible navigation --- */
+.art-header{height:94px;background:rgba(15,10,7,.9);border-bottom-color:rgba(200,154,83,.22)}
+.art-header nav{font-size:10.5px;gap:36px;letter-spacing:.13em;color:#eadfce;font-weight:600}
+.art-header nav a{opacity:.88;transition:opacity .25s,color .25s}
+.art-header nav a:hover{opacity:1;color:var(--gold)}
+.back-shop{font-size:9.5px;letter-spacing:.13em;color:#d4c4b1;font-weight:600}
+
+/* Keep every art chapter in one dark, warm Sona universe */
+.art-intro-scene{background:#0d0907}
+.art-intro{
+  background:
+    radial-gradient(circle at 72% 46%,rgba(200,154,83,.15),transparent 32%),
+    radial-gradient(circle at 26% 65%,rgba(142,73,63,.11),transparent 28%),
+    linear-gradient(145deg,#18100c,#0b0806 72%);
+  color:var(--paper);
+  border-top:1px solid rgba(200,154,83,.12);
+  border-bottom:1px solid rgba(200,154,83,.12)
+}
+.intro-number{color:rgba(200,154,83,.055)}
+.intro-copy .eyebrow{color:var(--gold)}
+.intro-copy h2{color:#eee2cf}
+.intro-copy p:last-child{color:#a99a8a}
+.texture-disc{
+  background:
+    repeating-radial-gradient(circle at 35% 35%,rgba(200,154,83,.11) 0 2px,transparent 3px 10px);
+  box-shadow:0 0 100px rgba(200,154,83,.06)
+}
+
+/* Final collector chapter now expands from an inset gallery card to full-screen */
+.collector-scene{height:210vh;background:#090604;position:relative}
+.collector{
+  --cp:var(--collector-p,0);
+  width:calc(84vw + 16vw * var(--cp));
+  height:calc(76vh + 24vh * var(--cp));
+  top:0;
+  margin:auto;
+  align-self:center;
+  border-radius:calc(34px * (1 - var(--cp)));
+  overflow:hidden;
+  box-shadow:0 45px 130px rgba(0,0,0,.48);
+  transform:translateY(calc(12vh - 12vh * var(--cp))) scale(calc(.94 + .06 * var(--cp)));
+  transform-origin:center center;
+  border:1px solid rgba(200,154,83,calc(.20 - .10 * var(--cp)));
+  will-change:width,height,transform,border-radius
+}
+.collector-panel{
+  transform:translateX(calc(-32px + 32px * var(--cp)));
+  opacity:calc(.55 + .45 * var(--cp));
+  background:
+    radial-gradient(circle at 78% 30%,rgba(200,154,83,.08),transparent 32%),
+    #100c09
+}
+.gold-field{
+  transform:scale(calc(.88 + .12 * var(--cp)));
+  transform-origin:center;
+  background:
+    radial-gradient(circle at 50% 45%,rgba(255,239,196,.28),transparent 24%),
+    linear-gradient(145deg,#c99b55,#744726)
+}
+.gold-field span{
+  transform:scale(calc(.86 + .16 * var(--cp)));
+  opacity:calc(.55 + .3 * var(--cp))
+}
+.collector-panel h2{transform:scale(calc(.94 + .06 * var(--cp)));transform-origin:left center}
+.collector-panel>p:not(.eyebrow){opacity:calc(.55 + .45 * var(--cp))}
+
+@media(max-width:1100px){
+  .art-header nav{font-size:9.5px;gap:22px}
+}
+@media(max-width:900px){
+  .collector-scene{height:175svh}
+  .collector{
+    position:sticky;
+    top:0;
+    width:calc(92vw + 8vw * var(--collector-p,0));
+    height:calc(76svh + 24svh * var(--collector-p,0));
+    min-height:0;
+    border-radius:calc(26px * (1 - var(--collector-p,0)));
+    transform:translateY(calc(12svh - 12svh * var(--collector-p,0))) scale(calc(.95 + .05 * var(--collector-p,0)))
+  }
+  .gold-field{display:grid;position:absolute;inset:0;opacity:.28}
+  .collector-panel{position:relative;z-index:2;padding:0 7vw;background:linear-gradient(90deg,rgba(16,12,9,.98),rgba(16,12,9,.86) 70%,rgba(16,12,9,.35))}
+}
+@media(max-width:600px){
+  .collector-panel h2{font-size:54px}
+  .collector-panel>p:not(.eyebrow){font-size:10px;line-height:1.75}
+}
