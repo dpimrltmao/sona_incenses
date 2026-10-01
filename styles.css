@@ -855,3 +855,28 @@ html[dir=rtl] .ritual-scroll .safety-note{border-left:0;border-right:1px solid r
   .sona-ritual-photo{min-height:400px}
   .sona-ritual-copy{padding:30px 24px 36px}
 }
+
+
+/* --- Mobile navigation repair: keep Art accessible when the desktop nav collapses --- */
+.mobile-art-link{
+  display:none;
+  color:#d8c6a8;
+  font-size:8px;
+  font-weight:600;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  padding:9px 11px;
+  border:1px solid rgba(201,154,82,.26);
+  border-radius:999px;
+  transition:.25s ease;
+}
+.mobile-art-link:hover{background:rgba(201,154,82,.09);border-color:rgba(201,154,82,.46);color:#f0dfc5}
+@media(max-width:1060px){
+  .mobile-art-link{display:inline-flex;align-items:center;justify-content:center}
+  .header-actions{gap:10px}
+}
+@media(max-width:680px){
+  .site-header{grid-template-columns:1fr auto!important}
+  .header-actions{gap:7px}
+  .mobile-art-link{font-size:7px;padding:8px 10px}
+}
