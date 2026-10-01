@@ -29,7 +29,7 @@ async function loadLocale(locale){
   }catch(e){console.error("Locale load failed",e)}
 }
 function renderProducts(){
-  grid.innerHTML=PRODUCTS.map((p)=>`
+  const products=PRODUCTS.map((p)=>`
     <article class="product-card">
       <div class="product-photo">
         <img class="product-image" src="${p.image}" alt="${p.name[state.locale]}" loading="lazy" decoding="async">
@@ -44,6 +44,26 @@ function renderProducts(){
         <button class="add-button" data-add="${p.id}">${get(state.messages,"product.add")||"Add to bag"}</button>
       </div>
     </article>`).join("");
+
+  const ritualPromo=`
+    <article class="product-card sona-ritual-card">
+      <div class="sona-ritual-photo">
+        <img src="assets/hero-house.webp" alt="Sona ritual with Bukhoor, oud and warm amber light" loading="lazy" decoding="async">
+      </div>
+      <div class="sona-ritual-copy">
+        <img src="assets/sona-logo.jpg" alt="" class="sona-ritual-logo">
+        <p class="eyebrow">THE HOUSE OF SONA</p>
+        <h3>The <em>Sona Ritual</em></h3>
+        <p class="sona-ritual-lede">More than a fragrance. A ritual of home, heritage and harmony.</p>
+        <div class="sona-ritual-features">
+          <span><b>Handcrafted blends</b><small>Rooted in tradition</small></span>
+          <span><b>Gift-ready</b><small>Beautifully curated</small></span>
+          <span><b>Dubai delivery</b><small>Fast & reliable</small></span>
+        </div>
+        <a class="sona-ritual-cta" href="#ritual">Discover <span>→</span></a>
+      </div>
+    </article>`;
+  grid.innerHTML=products+ritualPromo;
 }
 function save(){localStorage.setItem("sona_cart",JSON.stringify(state.cart));renderCart()}
 function add(id){state.cart[id]=Math.min((state.cart[id]||0)+1,10);save();openCart()}
