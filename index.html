@@ -45,7 +45,7 @@
       <div class="hero-copy">
         <div class="hero-kicker"><span></span><p class="eyebrow" data-i18n="hero.eyebrow">Arabian fragrance house · Dubai</p></div>
         <h1><span data-i18n="hero.title1">The art of</span><em data-i18n="hero.title2">Bukhoor.</em></h1>
-        <p class="hero-text" data-i18n="hero.text">A modern fragrance house rooted in Arabian ritual — oud, amber, musk and smoke composed for the spaces you never want to forget.</p>
+        <p class="hero-text" data-i18n="hero.text">A contemporary fragrance house rooted in Arabian ritual — crafted through oud, sandalwood, resins, musk and smoke.</p>
         <div class="hero-actions">
           <a class="button button-gold" href="#collection" data-i18n="hero.shop">Explore the collection</a>
           <a class="text-link" href="#story"><span data-i18n="hero.discover">The Sona story</span><span>↗</span></a>
@@ -69,21 +69,75 @@
       </div>
     </section>
 
-    <section class="experience-scroll" id="experienceScene" aria-label="Sona sensory experience">
+    <section class="experience-scroll" id="experienceScene" aria-label="Sona scent architecture">
       <div class="experience-sticky">
         <div class="experience-card">
           <div class="experience-glow"></div>
           <div class="experience-ring ring-one"></div>
           <div class="experience-ring ring-two"></div>
           <div class="experience-ring ring-three"></div>
-          <img src="assets/sona-logo.jpg" alt="Sona Incenses" class="experience-logo">
-          <div class="experience-copy">
-            <p class="eyebrow">SONA · DUBAI · THE ART OF BUKHOOR</p>
-            <h2>Fragrance,<br><em>felt before it is understood.</em></h2>
-            <p>A quiet ritual of light, smoke and memory — designed to transform the atmosphere before a word is spoken.</p>
+
+          <div class="scent-core" aria-hidden="true">
+            <span data-i18n="experience.core">SCENT</span>
+            <small data-i18n="experience.coreNote">CHANGES HOW A ROOM FEELS</small>
           </div>
-          <div class="experience-index"><span>01</span><small>THE SENSORY HOUSE</small></div>
+
+          <div class="scent-note scent-woods">
+            <strong data-i18n="experience.woods.title">WOODS</strong>
+            <span data-i18n="experience.woods.text">Oud · Sandalwood</span>
+          </div>
+          <div class="scent-note scent-resins">
+            <strong data-i18n="experience.resins.title">RESINS</strong>
+            <span data-i18n="experience.resins.text">Frankincense · Amber</span>
+          </div>
+          <div class="scent-note scent-softness">
+            <strong data-i18n="experience.softness.title">SOFTNESS</strong>
+            <span data-i18n="experience.softness.text">Musk · Khoumra</span>
+          </div>
+
+          <div class="experience-copy">
+            <p class="eyebrow" data-i18n="experience.eyebrow">02 · THE ARCHITECTURE OF SCENT</p>
+            <h2 data-i18n="experience.title">Fragrance, felt before it is understood.</h2>
+            <p data-i18n="experience.text">Scent is not only something you smell. It changes how a room feels.</p>
+          </div>
+          <div class="experience-index"><span>02</span><small data-i18n="experience.index">SCENT ARCHITECTURE</small></div>
         </div>
+      </div>
+    </section>
+
+    <section class="ritual-scroll" id="ritualScene">
+      <div class="ritual-sticky">
+        <section class="ritual-section" id="ritual">
+          <div class="ritual-shell">
+            <div class="ritual-intro">
+              <p class="eyebrow" data-i18n="ritual.eyebrow">03 · THE RITUAL</p>
+              <h2 data-i18n="ritual.title">A few moments of ritual. Hours of atmosphere.</h2>
+              <p data-i18n="ritual.text">Bukhoor is deliberately unhurried. Prepare the burner, place a small amount, then let the fragrance move naturally through the room.</p>
+              <a class="text-link ritual-shop-link" href="#collection"><span data-i18n="ritual.shop">Shop the collection</span><span>↓</span></a>
+              <p class="safety-note" data-i18n="ritual.safety">Always use a heat-safe burner on a stable surface and never leave burning charcoal unattended.</p>
+            </div>
+
+            <div class="ritual-stage" aria-label="Three steps of the Sona Bukhoor ritual">
+              <div class="ritual-rings" aria-hidden="true"></div>
+              <div class="ritual-object" aria-hidden="true">
+                <div class="ritual-smoke rs-one"></div>
+                <div class="ritual-smoke rs-two"></div>
+                <div class="ritual-smoke rs-three"></div>
+                <div class="ritual-ember"></div>
+                <div class="ritual-burner">
+                  <div class="ritual-burner-lid"><i></i><i></i><i></i></div>
+                  <div class="ritual-burner-neck"></div>
+                  <div class="ritual-burner-body"><span>S</span></div>
+                </div>
+              </div>
+              <ol class="ritual-steps">
+                <li><strong>01</strong><span><b data-i18n="ritual.step1.title">Light</b><small data-i18n="ritual.step1.text">Prepare charcoal or your electric burner safely.</small></span></li>
+                <li><strong>02</strong><span><b data-i18n="ritual.step2.title">Place</b><small data-i18n="ritual.step2.text">Add a small amount of Bukhoor.</small></span></li>
+                <li><strong>03</strong><span><b data-i18n="ritual.step3.title">Let it linger</b><small data-i18n="ritual.step3.text">Allow the smoke and fragrance to settle naturally.</small></span></li>
+              </ol>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -117,25 +171,7 @@
       </div>
     </section>
 
-    <section class="ritual-scroll" id="ritualScene">
-      <div class="ritual-sticky">
-    <section class="ritual-section" id="ritual">
-      <div class="ritual-shell">
-        <div class="ritual-intro">
-          <p class="eyebrow" data-i18n="ritual.eyebrow">The ritual</p>
-          <h2 data-i18n="ritual.title">Slow down.<br>Light the room.</h2>
-          <p data-i18n="ritual.text">Place a small piece of Bukhoor over safely prepared charcoal or an electric burner, let the fragrance bloom, then allow the smoke to move gently through your space.</p>
-          <p class="safety-note" data-i18n="ritual.safety">Always use a heat-safe burner on a stable surface and never leave burning charcoal unattended.</p>
-        </div>
-        <ol class="ritual-steps">
-          <li><strong>01</strong><span><b data-i18n="ritual.step1.title">Warm</b><small data-i18n="ritual.step1.text">Prepare your burner safely.</small></span></li>
-          <li><strong>02</strong><span><b data-i18n="ritual.step2.title">Place</b><small data-i18n="ritual.step2.text">Add a small amount of Bukhoor.</small></span></li>
-          <li><strong>03</strong><span><b data-i18n="ritual.step3.title">Enjoy</b><small data-i18n="ritual.step3.text">Let the scent settle into the room.</small></span></li>
-        </ol>
-      </div>
-    </section>
-      </div>
-    </section>
+
 
     <section class="quote-scroll" id="quoteScene">
       <div class="quote-sticky">
