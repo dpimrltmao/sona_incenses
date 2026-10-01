@@ -405,3 +405,21 @@ main,.site-header,.announcement,.footer{position:relative;z-index:1}
 .product-card:hover .product-photo{filter:brightness(1.04) saturate(1.03)}
 .cart-thumb{background-image:url("assets/sona-products.webp");background-size:300% 300%;background-position:center;background-repeat:no-repeat;border:1px solid rgba(211,173,114,.14)}
 @media(max-width:680px){.product-photo{min-height:420px}}
+
+
+/* --- October refinement: clarity + navigation legibility --- */
+.nav{font-size:10.5px;gap:36px;letter-spacing:.13em;color:#ddd0bd}
+.nav a{font-weight:600}
+.language-button,.cart-button{font-size:9.5px;letter-spacing:.12em;color:#d8cab8}
+.product-photo{
+  background-image:url("assets/sona-products-hq.jpg")!important;
+  background-size:300% 300%;
+  background-repeat:no-repeat;
+  background-color:#17110d;
+  min-height:430px;
+  filter:none;
+}
+.product-card:hover .product-photo{filter:brightness(1.025) saturate(1.025)}
+.cart-thumb{background-image:url("assets/sona-products-hq.jpg")!important}
+@media(max-width:1180px){.nav{gap:25px;font-size:9.5px}}
+@media(max-width:680px){.product-photo{min-height:440px}}
