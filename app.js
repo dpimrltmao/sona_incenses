@@ -48,7 +48,7 @@ function renderProducts(){
   const ritualPromo=`
     <article class="product-card sona-ritual-card">
       <div class="sona-ritual-photo">
-        <img src="assets/hero-house.webp" alt="Sona ritual with Bukhoor, oud and warm amber light" loading="lazy" decoding="async">
+        <img src="assets/ritual-house.webp" alt="Sona ritual with Bukhoor, oud and warm amber light" loading="lazy" decoding="async">
       </div>
       <div class="sona-ritual-copy">
         <img src="assets/sona-logo.jpg" alt="" class="sona-ritual-logo">
