@@ -716,3 +716,142 @@ html[dir=rtl] .ritual-scroll .safety-note{border-left:0;border-right:1px solid r
 @media(prefers-reduced-motion:reduce){
   .scent-note,.scent-core,.ritual-object,.ritual-stage .ritual-steps li{opacity:1!important;transform:none!important}
 }
+
+
+/* === Final approved Sona homepage polish === */
+
+/* Refined hero CTA: muted, slimmer and more editorial. */
+.hero-actions .button-gold{
+  min-height:46px;
+  padding:0 24px;
+  background:linear-gradient(180deg,#b78b4b,#987039);
+  color:#120d09;
+  border:1px solid rgba(232,203,151,.42);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 12px 32px rgba(0,0,0,.18);
+  letter-spacing:.145em;
+}
+.hero-actions .button-gold:hover{
+  background:linear-gradient(180deg,#c49a59,#a7793e);
+  transform:translateY(-1px);
+}
+
+/* House of Sona hero photography. */
+.hero-stage-photo{
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid rgba(201,154,82,.16);
+  background:#120c08;
+}
+.hero-house-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transform:scale(calc(1.04 + var(--hero-p,0)*.035));
+  filter:saturate(.96) contrast(1.03) brightness(.88);
+}
+.hero-photo-vignette{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(7,5,4,.18),transparent 35%,transparent 75%,rgba(6,4,3,.16)),
+    linear-gradient(180deg,rgba(5,4,3,.12),transparent 42%,rgba(6,4,3,.28));
+}
+.hero-stage-photo .hero-seal{z-index:4}
+
+/* Luxury chapter: approved real product photography replaces the flat illustration. */
+.manifesto-art-photo{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid rgba(201,154,82,.16);
+  background:#160e09;
+}
+.manifesto-photo{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  filter:brightness(.8) saturate(.92) contrast(1.05);
+  transform:scale(calc(1.025 + var(--story-p,0)*.025));
+}
+.manifesto-photo-shade{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(8,5,3,.04),rgba(8,5,3,.13) 62%,rgba(8,5,3,.58));
+}
+.manifesto-art-photo>p{
+  position:absolute;left:7%;right:7%;bottom:4%;z-index:3;
+  color:#d7c4a7!important;text-shadow:0 2px 18px rgba(0,0,0,.62)
+}
+
+/* Ritual: same disciplined product-card visual language. */
+.ritual-stage-luxury{
+  display:grid!important;
+  grid-template-columns:.92fr 1.08fr;
+  min-height:620px;
+  overflow:hidden;
+  padding:0!important;
+  background:#120d09!important;
+  border:1px solid rgba(201,154,82,.18);
+  border-radius:24px;
+}
+.ritual-stage-luxury .ritual-steps-clean{
+  position:relative!important;
+  inset:auto!important;
+  width:auto!important;height:auto!important;
+  padding:48px 34px!important;
+  display:flex!important;flex-direction:column;justify-content:center;gap:0!important;
+  background:linear-gradient(145deg,#15100c,#100c09);
+  transform:none!important;
+}
+.ritual-stage-luxury .ritual-steps-clean li{
+  opacity:1!important;
+  transform:none!important;
+  padding:24px 0!important;
+  grid-template-columns:56px 1fr!important;
+  background:none!important;
+  border-bottom:1px solid rgba(201,154,82,.16)!important;
+}
+.ritual-stage-luxury .ritual-steps-clean li:last-child{border-bottom:0!important}
+.ritual-stage-luxury .ritual-steps-clean strong{font-size:25px!important;color:#c99a55!important}
+.ritual-stage-luxury .ritual-steps-clean b{font-size:25px!important;color:#efe2cf!important}
+.ritual-stage-luxury .ritual-steps-clean small{font-size:8px!important;color:#9e8d79!important;line-height:1.55!important}
+.ritual-photo-wrap{position:relative;min-width:0;overflow:hidden;background:#24150e}
+.ritual-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.78) saturate(.98)}
+.ritual-photo-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,9,6,.25),transparent 28%),linear-gradient(180deg,transparent 62%,rgba(9,6,4,.22))}
+
+/* The tenth collection tile: image left, Sona Ritual right, exactly matching the product grid. */
+.sona-ritual-card{
+  grid-template-columns:1fr 1fr!important;
+  min-height:520px;
+  background:#15100c!important;
+}
+.sona-ritual-photo{position:relative;overflow:hidden;background:#1b110b}
+.sona-ritual-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.8) saturate(.97);transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+.sona-ritual-card:hover .sona-ritual-photo img{transform:scale(1.025)}
+.sona-ritual-copy{
+  padding:38px 30px;
+  display:flex;flex-direction:column;justify-content:center;
+  background:radial-gradient(circle at 20% 22%,rgba(194,143,72,.08),transparent 32%),#12100d;
+}
+.sona-ritual-logo{width:58px;height:58px;border-radius:50%;object-fit:cover;margin-bottom:18px;border:1px solid rgba(201,154,82,.36)}
+.sona-ritual-copy .eyebrow{margin-bottom:10px}
+.sona-ritual-copy h3{font:500 clamp(32px,3vw,48px)/.9 var(--serif);color:#efe3d2;margin:0}
+.sona-ritual-copy h3 em{display:block;color:#d0a05b;font-weight:500}
+.sona-ritual-lede{max-width:350px;color:#a99b8b;font-size:11px;line-height:1.7;margin:18px 0 20px}
+.sona-ritual-features{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid rgba(201,154,82,.16);border-bottom:1px solid rgba(201,154,82,.16)}
+.sona-ritual-features span{padding:10px 0;display:flex;justify-content:space-between;gap:16px}
+.sona-ritual-features b{font:500 15px var(--serif);color:#e5d6c1}
+.sona-ritual-features small{font-size:6.5px;letter-spacing:.11em;text-transform:uppercase;color:#776b5f;text-align:right}
+.sona-ritual-cta{margin-top:20px;min-height:44px;border:1px solid rgba(201,154,82,.42);display:flex;align-items:center;justify-content:space-between;padding:0 16px;color:#e8d8c1;font-size:8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.sona-ritual-cta:hover{background:rgba(201,154,82,.08)}
+
+@media(max-width:900px){
+  .hero-stage-photo{border-radius:20px}
+  .ritual-stage-luxury{grid-template-columns:1fr;height:100%!important}
+  .ritual-photo-wrap{min-height:48%;order:1}
+  .ritual-stage-luxury .ritual-steps-clean{order:2;padding:22px 24px!important}
+  .ritual-stage-luxury .ritual-steps-clean li{padding:11px 0!important}
+  .sona-ritual-card{grid-template-columns:1fr!important}
+  .sona-ritual-photo{min-height:400px}
+  .sona-ritual-copy{padding:30px 24px 36px}
+}
