@@ -102,3 +102,56 @@ footer{padding:70px max(38px,calc((100vw - var(--max))/2 + 38px)) 30px;backgroun
   .collector-panel h2{font-size:54px}
   .collector-panel>p:not(.eyebrow){font-size:10px;line-height:1.75}
 }
+
+
+/* === Founding Collection — real artwork release === */
+.art-header-actions{justify-self:end;display:flex;align-items:center;gap:12px}
+.mobile-collection-link{display:none;font-size:8px;letter-spacing:.14em;color:#d7c6ae;border:1px solid rgba(200,154,83,.25);padding:9px 12px;border-radius:999px}
+.real-artist-frame{padding:0;background:#1b120c;overflow:hidden;border:1px solid rgba(200,154,83,.28)}
+.artist-hero-photo{width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(.88) contrast(1.03) brightness(.88);transition:transform .6s ease}
+.real-artist-frame:hover .artist-hero-photo{transform:scale(1.025)}
+.collection-head>p{max-width:470px}
+.founding-gallery .work-card{min-height:570px}
+.work-frame.art-lightbox-trigger{border:0;appearance:none;width:100%;min-height:570px;cursor:zoom-in;position:relative;overflow:hidden;padding:28px;background:linear-gradient(145deg,#261911,#15100c);font:inherit}
+.work-frame.art-lightbox-trigger img{width:100%;height:100%;object-fit:contain;display:block;filter:saturate(.94) contrast(1.02);transition:transform .55s cubic-bezier(.22,.61,.36,1),filter .35s ease;box-shadow:0 28px 70px rgba(0,0,0,.42)}
+.work-card:hover .work-frame.art-lightbox-trigger img{transform:scale(1.025);filter:saturate(1) contrast(1.025)}
+.view-art{position:absolute;left:42px;bottom:38px;background:rgba(15,10,7,.82);backdrop-filter:blur(10px);border:1px solid rgba(200,154,83,.28);padding:9px 12px;color:#e7d9c4;font-size:7px;letter-spacing:.15em;opacity:0;transform:translateY(8px);transition:.3s ease}
+.work-card:hover .view-art{opacity:1;transform:none}
+.work-meta h3{font-size:38px;line-height:.95;color:#eee2cf}
+.work-meta p{min-height:58px}
+.art-price{display:block;font:500 25px/1 var(--serif);color:var(--gold);margin-top:16px;letter-spacing:.02em}
+.collect-work{margin-top:22px;min-height:46px;border:1px solid rgba(200,154,83,.34);display:flex;align-items:center;justify-content:center;color:#e4d4bd;font-size:8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:.25s ease}
+.collect-work:hover{background:var(--gold);color:#17100b;border-color:var(--gold)}
+
+.art-lightbox{position:fixed;inset:0;z-index:500;background:rgba(7,5,3,.96);backdrop-filter:blur(18px);display:grid;place-items:center;padding:46px;opacity:0;visibility:hidden;transition:.28s ease}
+.art-lightbox.open{opacity:1;visibility:visible}
+.art-lightbox>img{max-width:min(82vw,1000px);max-height:82vh;object-fit:contain;box-shadow:0 40px 120px rgba(0,0,0,.72)}
+.lightbox-close{position:absolute;right:30px;top:22px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(200,154,83,.34);background:#120d09;color:#eadbc5;font-size:25px;cursor:pointer}
+.lightbox-caption{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:16px;color:#eadbc5;white-space:nowrap}
+.lightbox-caption span{font:500 20px var(--serif)}
+.lightbox-caption small{font-size:6px;letter-spacing:.18em;color:#89796a}
+
+@media(max-width:900px){
+  .art-header-actions{gap:7px}
+  .mobile-collection-link{display:inline-flex;align-items:center}
+  .back-shop{font-size:7px}
+  .hero-canvas{opacity:.78}
+  .real-artist-frame{width:70%;aspect-ratio:4/5}
+  .work-frame.art-lightbox-trigger{min-height:520px;padding:20px}
+  .view-art{opacity:1;transform:none;left:30px;bottom:30px}
+}
+@media(max-width:600px){
+  .art-header{height:80px}
+  .brand img{width:46px;height:46px}
+  .mobile-collection-link{font-size:6.5px;padding:8px 9px}
+  .back-shop{font-size:6.5px;letter-spacing:.1em}
+  .real-artist-frame{width:78%}
+  .founding-gallery .work-card{min-height:0}
+  .work-frame.art-lightbox-trigger{min-height:460px}
+  .work-meta h3{font-size:34px}
+  .work-meta p{min-height:0}
+  .art-lightbox{padding:18px}
+  .art-lightbox>img{max-width:94vw;max-height:78vh}
+  .lightbox-caption{bottom:14px;gap:8px}
+  .lightbox-caption span{font-size:16px}
+}
